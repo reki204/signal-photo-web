@@ -13,22 +13,22 @@ const Header = () => {
           Signal Photo
         </Link>
         <nav className="hidden md:flex space-x-6 text-lg">
-          <Link href="/photos" className="hover:text-gray-300 transition">
+          <Link href="/photos" className="hover:text-gray-500 transition">
             ホーム
           </Link>
-          <Link href="/photos/new" className="hover:text-gray-300 transition">
+          <Link href="/photos/new" className="hover:text-gray-500 transition">
             新規投稿
           </Link>
-          <Link href="/register" className="hover:text-gray-300 transition">
+          <Link href="/register" className="hover:text-gray-500 transition">
             新規登録
           </Link>
-          <Link href="/login" className="hover:text-gray-300 transition">
+          <Link href="/login" className="hover:text-gray-500 transition">
             ログイン
           </Link>
 
           <Link href="/profile" className="">
             <Image
-              src="/default_icon.png"
+              src="/images/default_icon.png"
               alt="Profile Avatar"
               width={32}
               height={32}
