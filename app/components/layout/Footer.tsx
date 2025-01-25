@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ThemeToggle from "../theme-toggle";
+import ThemeToggle from "../ui/ThemeToggle";
 
 const Footer = () => {
   return (
@@ -19,7 +19,7 @@ const Footer = () => {
           </svg>
           <p className="text-lg font-semibold">Signal Photo</p>
 
-          {/*  */}
+          {/* テーマ変更ボタン */}
           <ThemeToggle />
         </div>
 
