@@ -15,14 +15,14 @@ const steps = [
 
 const HowToUse = () => {
   return (
-    <div className="py-20">
-      <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">
+    <div className="py-20 dark:bg-slate-800">
+      <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 text-center mb-12">
         How to use
       </h2>
       <div className="mt-4 flex flex-col md:flex-row justify-center items-center gap-8">
         {steps.map(({ image, step, text }) => (
           <div key={step} className="flex flex-col items-center max-w-sm">
-            <div className="bg-white/30 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
+            <div className="bg-white dark:bg-gray-800/50 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
               <Image
                 src={image}
                 width={640}
@@ -31,10 +31,10 @@ const HowToUse = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <dt className="text-xl font-semibold text-gray-700 dark:text-gray-300 mt-6">
+            <dt className="text-xl font-semibold text-gray-700 dark:text-gray-400 mt-6">
               {step}
             </dt>
-            <dd className="mt-2 text-gray-900 dark:text-white text-center px-4 leading-relaxed">
+            <dd className="mt-2 text-gray-900 dark:text-gray-200 text-center px-4 leading-relaxed">
               {text}
             </dd>
           </div>

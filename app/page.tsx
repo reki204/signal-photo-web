@@ -1,5 +1,5 @@
+import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
-import { ThemeToggle } from "./components/theme-toggle";
 import Hero from "./components/ui/Hero";
 import HowToUse from "./components/ui/HowToUse";
 
@@ -12,7 +12,7 @@ export default function Home() {
         <Hero isAuthenticated={isAuthenticated} />
         <HowToUse />
       </main>
-      <ThemeToggle />
+      <Footer />
     </>
   );
 }
