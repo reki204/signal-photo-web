@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 const Header = () => {
   return (
@@ -13,16 +12,28 @@ const Header = () => {
           Signal Photo
         </Link>
         <nav className="hidden md:flex space-x-6 text-lg">
-          <Link href="/photos" className="hover:text-gray-500 transition">
+          <Link
+            href="/photos"
+            className="hover:text-gray-500 dark:text-gray-200 transition"
+          >
             ホーム
           </Link>
-          <Link href="/photos/new" className="hover:text-gray-500 transition">
+          <Link
+            href="/photos/new"
+            className="hover:text-gray-500 dark:text-gray-200 transition"
+          >
             新規投稿
           </Link>
-          <Link href="/register" className="hover:text-gray-500 transition">
+          <Link
+            href="/register"
+            className="hover:text-gray-500 dark:text-gray-200 transition"
+          >
             新規登録
           </Link>
-          <Link href="/login" className="hover:text-gray-500 transition">
+          <Link
+            href="/login"
+            className="hover:text-gray-500 dark:text-gray-200 transition"
+          >
             ログイン
           </Link>
 
