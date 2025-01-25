@@ -1,39 +1,27 @@
-import type { FC } from "react";
+"use client";
+
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
-interface ThemeToggleProps {
-  className?: string;
-}
+const ThemeToggle = () => {
+  const [isMounted, setIsMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
-export const ThemeToggle: FC<ThemeToggleProps> = (props) => {
-  const { setTheme, theme } = useTheme();
+  useEffect(() => setIsMounted(true), []);
+
+  if (!isMounted) return null;
 
   return (
-    <div className="flex flex-row space-x-1">
-      <button
-        onClick={() => {
-          setTheme("light");
-        }}
-        className="py-1 px-2 border-2 rounded-md"
-      >
-        light
-      </button>
-      <button
-        onClick={() => {
-          setTheme("dark");
-        }}
-        className="py-1 px-2 border-2 rounded-md"
-      >
-        dark
-      </button>
-      <button
-        onClick={() => {
-          setTheme("system");
-        }}
-        className="py-1 px-2 border-2 rounded-md"
-      >
-        system
-      </button>
-    </div>
+    <button
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="ml-4 px-3 py-1 rounded-lg transition
+        bg-gray-700 hover:bg-gray-600 
+        dark:bg-gray-500 dark:hover:bg-gray-400 
+        text-white"
+    >
+      {theme === "dark" ? "☀️" : "🌙"}
+    </button>
   );
 };
+
+export default ThemeToggle;
