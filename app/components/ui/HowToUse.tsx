@@ -1,46 +1,26 @@
-import Image from "next/image";
+"use client";
 
-const steps = [
-  {
-    image: "/images/step1.jpg",
-    step: "Step 1",
-    text: "新規投稿ページで合言葉と一緒に画像を投稿しましょう。",
-  },
-  {
-    image: "/images/step2.jpg",
-    step: "Step 2",
-    text: "検索ページで合言葉を検索して、画像を表示しましょう。",
-  },
-];
+import SectionTitle from "./HowToUse/HowToUseTitle";
+import StepCard from "./HowToUse/StepCard";
+import { steps } from "./HowToUse/Step";
 
+/**
+ * サービスの使い方を説明するセクションコンポーネント
+ * ステップバイステップで利用方法を視覚的に表示
+ * @returns {JSX.Element} 使い方セクション
+ */
 const HowToUse = () => {
   return (
-    <div className="py-20 dark:bg-slate-800">
-      <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 text-center mb-12">
-        How to use
-      </h2>
-      <div className="mt-4 flex flex-col md:flex-row justify-center items-center gap-8">
-        {steps.map(({ image, step, text }) => (
-          <div key={step} className="flex flex-col items-center max-w-sm">
-            <div className="bg-white dark:bg-gray-800/50 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
-              <Image
-                src={image}
-                width={640}
-                height={480}
-                alt={step}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <dt className="text-xl font-semibold text-gray-700 dark:text-gray-400 mt-6">
-              {step}
-            </dt>
-            <dd className="mt-2 text-gray-900 dark:text-gray-200 text-center px-4 leading-relaxed">
-              {text}
-            </dd>
-          </div>
-        ))}
+    <section className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800">
+      <div className="container mx-auto px-4">
+        <SectionTitle />
+        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {steps.map((step, index) => (
+            <StepCard key={step.step} {...step} index={index} />
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
