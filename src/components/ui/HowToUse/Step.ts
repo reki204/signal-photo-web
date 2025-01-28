@@ -1,4 +1,4 @@
-import { StepType } from "./types";
+import { StepType } from "@/components/ui/HowToUse/types";
 
 /**
  * サービスの使い方ステップデータ

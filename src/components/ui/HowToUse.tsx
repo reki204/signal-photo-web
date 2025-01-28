@@ -1,8 +1,8 @@
 "use client";
 
-import SectionTitle from "./HowToUse/HowToUseTitle";
-import StepCard from "./HowToUse/StepCard";
-import { steps } from "./HowToUse/Step";
+import SectionTitle from "@/components/ui/HowToUse/HowToUseTitle";
+import StepCard from "@/components/ui/HowToUse/StepCard";
+import { steps } from "@/components/ui/HowToUse/Step";
 
 /**
  * サービスの使い方を説明するセクションコンポーネント

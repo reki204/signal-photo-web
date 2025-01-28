@@ -1,4 +1,4 @@
-import { FeatureType } from "./types";
+import { FeatureType } from "@/components/ui/Features/types";
 
 /**
  * サービスの特徴データ

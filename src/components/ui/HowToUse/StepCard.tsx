@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { StepType } from "./types";
+import { StepType } from "@/components/ui/HowToUse/types";
 
 type Props = StepType & { index: number };
 
