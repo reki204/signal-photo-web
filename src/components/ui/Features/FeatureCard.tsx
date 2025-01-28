@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { FeatureType } from "./types";
+import { FeatureType } from "@/components/ui/Features/types";
 
 type Props = FeatureType & { index: number };
 
