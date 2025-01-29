@@ -10,7 +10,7 @@ const navigation = [
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 w-full bg-white/80 dark:bg-gray-900 backdrop-blur-md shadow-md z-50">
+    <header className="sticky top-0 left-0 w-full bg-white/80 dark:bg-gray-900 backdrop-blur-md shadow-md z-50">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Link
           href="/"
