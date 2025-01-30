@@ -1,7 +1,7 @@
 /**
  * ステップカードのデータ構造を定義
  */
-export type StepType = {
+export interface StepType {
   /** ステップを説明する画像のパス */
   image: string;
   /** ステップ番号 */
