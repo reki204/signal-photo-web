@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "motion/react";
+import Image from "next/image";
+
 import { StepType } from "@/components/ui/HowToUse/types";
 
 type Props = StepType & { index: number };
