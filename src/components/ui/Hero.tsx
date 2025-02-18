@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Hero = () => {
   return (
@@ -23,9 +23,7 @@ const Hero = () => {
 
         <p className="text-xl md:text-2xl text-gray-200 text-center mb-12 leading-relaxed max-w-2xl">
           合言葉で繋がる、新しい写真共有の形。
-          <span className="block mt-2 text-gray-300">
-            あなたの大切な瞬間を、大切な人と。
-          </span>
+          <span className="block mt-2 text-gray-300">あなたの大切な瞬間を、大切な人と。</span>
         </p>
 
         <Link

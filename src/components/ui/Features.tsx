@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import FeatureCard from "@/components/ui/Features/FeatureCard";
-import { featuresContents } from "@/components/ui/Features/FeaturesContents";
-import FeaturesTitle from "@/components/ui/Features/FeaturesTitle";
+import FeatureCard from '@/components/ui/Features/FeatureCard';
+import { featuresContents } from '@/components/ui/Features/FeaturesContents';
+import FeaturesTitle from '@/components/ui/Features/FeaturesTitle';
 
 /**
  * サービスの主要な特徴を表示するセクションコンポーネント
