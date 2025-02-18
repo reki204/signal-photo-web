@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
-import Image from "next/image";
+import { motion } from 'motion/react';
+import Image from 'next/image';
 
-import { Photo } from "../../types/Photo";
+import { Photo } from '../../types/Photo';
 
 interface PhotoResults {
   photos: Photo[];

@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
-import { useState } from "react";
+import { motion } from 'motion/react';
+import { useState } from 'react';
 
 export function PhotoSearchForm() {
-  const [keyword, setKeyword] = useState("");
+  const [keyword, setKeyword] = useState('');
 
   return (
     <motion.div

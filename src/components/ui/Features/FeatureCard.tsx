@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
+import { motion } from 'motion/react';
 
-import { FeatureType } from "@/components/ui/Features/types";
+import { FeatureType } from '@/components/ui/Features/types';
 
 type Props = FeatureType & { index: number };
 
@@ -28,12 +28,8 @@ const FeatureCard = ({ icon, title, description, index }: Props) => {
       <div className="w-14 h-14 mb-6 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-2xl text-white transform group-hover:scale-110 transition-transform duration-300">
         {icon}
       </div>
-      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-        {title}
-      </h3>
-      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-        {description}
-      </p>
+      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">{title}</h3>
+      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{description}</p>
     </motion.div>
   );
 };

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
+import { motion } from 'motion/react';
 
 /**
  * 使い方セクションのタイトルコンポーネント

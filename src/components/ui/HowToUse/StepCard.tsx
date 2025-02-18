@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
-import Image from "next/image";
+import { motion } from 'motion/react';
+import Image from 'next/image';
 
-import { StepType } from "@/components/ui/HowToUse/types";
+import { StepType } from '@/components/ui/HowToUse/types';
 
 type Props = StepType & { index: number };
 
@@ -47,12 +47,8 @@ const StepCard = ({ image, step, title, text, icon, index }: Props) => {
         {/* 説明エリア */}
         <div className="p-8">
           <div className="text-4xl mb-4">{icon}</div>
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-            {title}
-          </h3>
-          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-            {text}
-          </p>
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{title}</h3>
+          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{text}</p>
         </div>
       </div>
     </motion.div>

@@ -12,4 +12,4 @@ export interface StepType {
   text: string;
   /** ステップを表すアイコン */
   icon: string;
-};
+}

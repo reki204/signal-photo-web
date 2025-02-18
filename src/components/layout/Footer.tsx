@@ -1,6 +1,6 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import ThemeToggle from "@/components/ui/ThemeToggle";
+import ThemeToggle from '@/components/ui/ThemeToggle';
 
 const Footer = () => {
   return (

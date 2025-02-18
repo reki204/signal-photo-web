@@ -8,4 +8,4 @@ export interface FeatureType {
   title: string;
   /** 特徴の詳細説明 */
   description: string;
-};
+}

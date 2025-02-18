@@ -8,4 +8,4 @@ export interface Photo {
   url: string;
   /** 投稿者ID */
   userId: string;
-};
+}

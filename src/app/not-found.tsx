@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
-import Link from "next/link";
+import { motion } from 'motion/react';
+import Link from 'next/link';
 
 /**
  * 404 Not Foundページコンポーネント
@@ -17,9 +17,7 @@ const NotFound = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-8xl font-bold text-gray-500 dark:text-gray-300">
-            404
-          </h1>
+          <h1 className="text-8xl font-bold text-gray-500 dark:text-gray-300">404</h1>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-4">
             ページが見つかりません
           </h2>
