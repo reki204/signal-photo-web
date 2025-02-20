@@ -1,18 +1,15 @@
-"use client";
+'use client';
 
-import { PhotoSearchForm } from "@/features/photos/components/PhotoSearch/PhotoSearchForm";
-import { PhotoResults } from "@/features/photos/components/PhotoResults/PhotoResults";
+import { PhotoResults } from '@/features/photos/components/PhotoResults/PhotoResults';
+import { PhotoSearchForm } from '@/features/photos/components/PhotoSearch/PhotoSearchForm';
 
 const MOCK_PHOTOS = [
-  { id: "1", url: "/images/Mock/sample1.jpg", userId: "1" },
-  { id: "2", url: "/images/Mock/sample2.jpg", userId: "1" },
-  { id: "3", url: "/images/Mock/sample3.jpg", userId: "1" },
-  { id: "4", url: "/images/Mock/sample2.jpg", userId: "1" },
-  { id: "5", url: "/images/Mock/sample1.jpg", userId: "1" },
-  { id: "6", url: "/images/Mock/sample1.jpg", userId: "1" },
-  { id: "7", url: "/images/Mock/sample3.jpg", userId: "1" },
-  { id: "8", url: "/images/Mock/sample2.jpg", userId: "1" },
-  { id: "9", url: "/images/Mock/sample3.jpg", userId: "1" },
+  { id: '1', url: '/images/Mock/sample1.jpg', userId: '1' },
+  { id: '2', url: '/images/Mock/sample2.jpg', userId: '1' },
+  { id: '3', url: '/images/Mock/sample3.jpg', userId: '1' },
+  { id: '4', url: '/images/Mock/sample2.jpg', userId: '1' },
+  { id: '5', url: '/images/Mock/sample1.jpg', userId: '1' },
+  { id: '6', url: '/images/Mock/sample1.jpg', userId: '1' },
 ];
 
 export default function SearchPhotos() {
