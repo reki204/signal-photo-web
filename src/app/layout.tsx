@@ -31,11 +31,7 @@ export default function RootLayout({
     <html lang="ja" suppressHydrationWarning>
       <head />
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          enableColorScheme={false}
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" enableColorScheme={false} disableTransitionOnChange>
           <Header />
           <main className="relative">{children}</main>
           <Footer />

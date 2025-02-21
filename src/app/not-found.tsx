@@ -1,7 +1,6 @@
-'use client';
-
-import { motion } from 'motion/react';
 import Link from 'next/link';
+
+import Motion from '@/components/common/Motion';
 
 /**
  * 404 Not Foundページコンポーネント
@@ -12,11 +11,7 @@ const NotFound = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <div className="text-center px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+        <Motion>
           <h1 className="text-8xl font-bold text-gray-500 dark:text-gray-300">404</h1>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-4">
             ページが見つかりません
@@ -30,7 +25,7 @@ const NotFound = () => {
           >
             ホームに戻る
           </Link>
-        </motion.div>
+        </Motion>
       </div>
     </div>
   );
