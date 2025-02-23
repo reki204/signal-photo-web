@@ -1,11 +1,9 @@
-/**
- * 投稿画像
- */
 export interface Photo {
-  /** 画像ID */
   id: string;
-  /** 画像パス */
-  url: string;
-  /** 投稿者ID */
-  userId: string;
+  password: string;
+  created_at: string;
+  user_id: string;
+  encrypt_password: string;
+  salt: string;
+  deleted_at: string | null;
 }
