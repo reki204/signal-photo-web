@@ -1,7 +1,9 @@
-'use client';
+import { Suspense } from 'react';
 
 import { PhotoResults } from '@/features/photos/components/PhotoResults/PhotoResults';
 import { PhotoSearchForm } from '@/features/photos/components/PhotoSearch/PhotoSearchForm';
+
+import Loading from '../loading';
 
 const MOCK_PHOTOS = [
   { id: '1', url: '/images/Mock/sample1.jpg', userId: '1' },
@@ -17,7 +19,9 @@ export default function SearchPhotos() {
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800">
       <div className="container mx-auto px-4 py-16">
         <PhotoSearchForm />
-        <PhotoResults photos={MOCK_PHOTOS} />
+        <Suspense fallback={<Loading />}>
+          <PhotoResults photos={MOCK_PHOTOS} />
+        </Suspense>
       </div>
     </div>
   );
