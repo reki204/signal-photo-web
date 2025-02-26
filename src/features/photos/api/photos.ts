@@ -7,9 +7,13 @@ if (!API_BASE_URL) {
   throw new Error('API_BASE_URL is not defined');
 }
 
-export const searchPhotos = async (password: string): Promise<DecryptedImage[]> => {
-  const response = await fetch(`${API_BASE_URL}/photos?search=${encodeURIComponent(password)}`, {
+export const searchPhotos = async (searchPassword: string): Promise<DecryptedImage[]> => {
+  const response = await fetch(`${API_BASE_URL}/photos`, {
+    method: 'GET',
     credentials: 'include', // Cookieを含める
+    headers: {
+      'Content-Type': 'application/json',
+    },
   });
 
   if (!response.ok) {
