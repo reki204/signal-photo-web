@@ -1,13 +1,11 @@
-import { usePhotoSearch } from '../hooks/usePhotoSearch';
+import { DecryptedImage } from '../types/DecryptedImage';
 import { PhotoCard } from './PhotoCard';
 
-const PhotoResult = () => {
-  const { images, error } = usePhotoSearch();
+type Props = {
+  images: DecryptedImage[];
+};
 
-  if (error) {
-    return <div className="text-red-500 text-center mb-4 dark:text-red-400">{error}</div>;
-  }
-
+export function PhotoResults({ images }: Props) {
   if (images.length === 0) {
     return (
       <div className="text-center text-gray-500 dark:text-gray-400 py-8">
@@ -23,6 +21,4 @@ const PhotoResult = () => {
       ))}
     </div>
   );
-};
-
-export default PhotoResult;
+}
