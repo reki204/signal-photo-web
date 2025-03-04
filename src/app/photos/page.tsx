@@ -1,9 +1,9 @@
 import { ErrorBoundary } from 'react-error-boundary';
 
+import { PhotoResultsContainer } from '@/features/photos/containers/PhotoResultContainer';
 import { PhotoSearchContainer } from '@/features/photos/containers/PhotoSearchContainer';
 
-import Error from './(result)/error';
-import ResultPage from './(result)/page';
+import Error from './error';
 
 export default function SearchPhotos() {
   return (
@@ -11,7 +11,7 @@ export default function SearchPhotos() {
       <div className="container mx-auto px-4 py-16">
         <PhotoSearchContainer />
         <ErrorBoundary FallbackComponent={Error}>
-          <ResultPage />
+          <PhotoResultsContainer />
         </ErrorBoundary>
       </div>
     </div>
