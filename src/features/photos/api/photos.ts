@@ -27,7 +27,7 @@ export const createPhoto = async (formData: FormData): Promise<Photo> => {
   const response = await fetch(`${API_BASE_URL}/photos`, {
     method: 'POST',
     credentials: 'include',
-    body: formData, // multipart/form-dataでファイルをアップロード
+    body: formData,
   });
 
   if (!response.ok) {
