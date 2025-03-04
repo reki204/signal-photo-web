@@ -1,11 +1,7 @@
 import { DecryptedImage } from '../types/DecryptedImage';
 import { Photo } from '../types/Photo';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-
-if (!API_BASE_URL) {
-  throw new Error('API_BASE_URL is not defined');
-}
+const API_BASE_URL = 'http://localhost:8080/api/v1';
 
 export const searchPhotos = async (searchPassword: string): Promise<DecryptedImage[]> => {
   const response = await fetch(`${API_BASE_URL}/photos`, {
