@@ -27,7 +27,7 @@ const Header = () => {
           ))}
           <Link href="/profile">
             <Image
-              src="/images/default_icon.png"
+              src="/images/default_icon.webp"
               alt="Profile Avatar"
               width={32}
               height={32}

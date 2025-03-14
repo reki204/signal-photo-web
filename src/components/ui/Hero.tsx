@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <div className="relative min-h-screen w-full flex justify-center items-center overflow-hidden">
       <Image
-        src="/images/home_bg.jpg"
+        src="/images/home_bg.webp"
         alt="Background"
         fill
         className="absolute object-cover"

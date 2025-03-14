@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
         {/* サービス名とロゴ */}
         <div className="flex items-center space-x-3">
-          <Image src="/images/signalphoto-logo.jpg" alt="logo" width={60} height={60} priority />
+          <Image src="/images/signalphoto-logo.webp" alt="logo" width={60} height={60} priority />
           <p className="text-lg font-semibold">Signal Photo</p>
 
           {/* テーマ変更ボタン */}
