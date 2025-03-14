@@ -1,5 +1,5 @@
 ## Signal Photo Web
-<img src="./public/images/signalphoto-logo.jpg" alt="signal-photo-logo" width="150" height="100" />
+<img src="./public/images/signalphoto-logo.webp" alt="signal-photo-logo" width="150" height="100" />
 
 ## Getting Started 
 
