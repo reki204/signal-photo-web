@@ -1,7 +1,8 @@
 ## Signal Photo Web
+
 <img src="./public/images/signalphoto-logo.webp" alt="signal-photo-logo" width="150" height="100" />
 
-## Getting Started 
+## Getting Started
 
 First, run the development server:
 

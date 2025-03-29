@@ -14,6 +14,7 @@
     "fix:prettier": "prettier --cache --write ."
   },
   "dependencies": {
+    "@sentry/nextjs": "^9.10.1",
     "@next/third-parties": "^15.2.4",
     "motion": "^12.0.5",
     "next": "15.1.5",
