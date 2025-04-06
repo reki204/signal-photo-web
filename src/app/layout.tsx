@@ -7,6 +7,7 @@ import { ThemeProvider } from 'next-themes';
 
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
+import { env } from '@/env';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -38,7 +39,7 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
       </body>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID!} />
+      <GoogleAnalytics gaId={env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
     </html>
   );
 }
