@@ -1,9 +1,7 @@
-import './src/env';
-
 import { withSentryConfig } from '@sentry/nextjs';
 import type { NextConfig } from 'next';
 
-import { env } from '@/env';
+import { env } from './src/env';
 
 const nextConfig: NextConfig = {
   eslint: {
