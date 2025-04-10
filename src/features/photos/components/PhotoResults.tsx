@@ -3,9 +3,12 @@ import { PhotoCard } from './PhotoCard';
 
 type Props = {
   images: DecryptedImage[];
+  hasSearched: boolean;
 };
 
-export function PhotoResults({ images }: Props) {
+export const PhotoResults = ({ images, hasSearched }: Props) => {
+  if (!hasSearched) return null;
+
   if (images.length === 0) {
     return (
       <div className="text-center text-gray-500 dark:text-gray-400 py-8">
@@ -16,9 +19,11 @@ export function PhotoResults({ images }: Props) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {images.map((image) => (
-        <PhotoCard key={image.photo.id} image={image} />
+      {images.map((imageData, index) => (
+        <div key={index}>
+          <PhotoCard image={imageData} />
+        </div>
       ))}
     </div>
   );
-}
+};

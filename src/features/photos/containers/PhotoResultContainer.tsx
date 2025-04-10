@@ -1,6 +1,13 @@
 import { PhotoResults } from '../components/PhotoResults';
 import { DecryptedImage } from '../types/DecryptedImage';
 
-export const PhotoResultsContainer = ({ searchResults }: { searchResults?: DecryptedImage[] }) => {
-  return <>{searchResults && <PhotoResults images={searchResults} />}</>;
+type Props = {
+  searchResults: DecryptedImage[];
+  hasSearched: boolean;
 };
+
+export const PhotoResultsContainer = ({ searchResults, hasSearched }: Props) => {
+  return <PhotoResults images={searchResults} hasSearched={hasSearched} />;
+};
+
+export default PhotoResultsContainer;
