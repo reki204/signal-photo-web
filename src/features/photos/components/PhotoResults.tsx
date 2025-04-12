@@ -41,5 +41,3 @@ export const PhotoResults = () => {
     </div>
   );
 };
-
-export default PhotoResults;
