@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 
 type Props = {
   base64Data: string;
-}
+};
 
 const CanvasImage = ({ base64Data }: Props) => {
   const canvasRef = useRef(null);
