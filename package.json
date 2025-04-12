@@ -14,15 +14,22 @@
     "fix:prettier": "prettier --cache --write ."
   },
   "dependencies": {
-    "@sentry/nextjs": "^9.10.1",
     "@next/third-parties": "^15.2.4",
+    "@radix-ui/react-avatar": "^1.1.4",
+    "@radix-ui/react-slot": "^1.2.0",
+    "@sentry/nextjs": "^9.10.1",
     "@t3-oss/env-nextjs": "^0.12.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.487.0",
     "motion": "^12.0.5",
     "next": "15.1.5",
     "next-themes": "^0.4.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-error-boundary": "^5.0.0"
+    "react-error-boundary": "^5.0.0",
+    "tailwind-merge": "^3.2.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.8",
