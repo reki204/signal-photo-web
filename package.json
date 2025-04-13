@@ -11,7 +11,8 @@
     "lint:prettier": "prettier --cache --check .",
     "fix": "run-s -c fix:*",
     "fix:eslint": "next lint --fix",
-    "fix:prettier": "prettier --cache --write ."
+    "fix:prettier": "prettier --cache --write .",
+    "taze:major": "npx taze major"
   },
   "dependencies": {
     "@next/third-parties": "^15.2.4",
