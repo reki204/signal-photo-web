@@ -1,26 +1,28 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { FormEvent, useState } from 'react';
+import { useState } from 'react';
 
-import { searchPhotos } from '../actions/photoActions';
+import { searchAction } from '../actions/searchActions';
 import { useSearch } from '../context/SearchContext';
 
 export const PhotoSearchForm = () => {
   const [password, setPassword] = useState('');
+  const [validationError, setValidationError] = useState<string | null>(null);
   const { setSearchResults, setHasSearched, setIsLoading, setError } = useSearch();
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-
-    if (!password) return;
-
+  const handleSearchAction = async (formData: FormData) => {
+    setIsLoading(true);
+    setValidationError(null);
+    setError(null);
     try {
-      setIsLoading(true);
-      setError(null);
+      const response = await searchAction(formData);
 
-      await new Promise((resolve) => setTimeout(resolve, 3000));
-      const response = await searchPhotos(password);
+      if ('errors' in response) {
+        setValidationError(response.message);
+        setSearchResults([]);
+        return;
+      }
 
       setSearchResults(response.data);
       setHasSearched(true);
@@ -38,7 +40,7 @@ export const PhotoSearchForm = () => {
       animate={{ opacity: 1, y: 0 }}
       className="max-w-2xl mx-auto mb-12"
     >
-      <form onSubmit={handleSubmit} className="w-full">
+      <form action={handleSearchAction} className="w-full">
         <div className="relative">
           <input
             type="text"
@@ -50,6 +52,9 @@ export const PhotoSearchForm = () => {
             autoComplete="off"
           />
         </div>
+        {validationError && (
+          <div className="text-center text-red-500 dark:text-red-400 py-3">{validationError}</div>
+        )}
       </form>
     </motion.div>
   );
