@@ -2,9 +2,10 @@
 
 import { z } from 'zod';
 
+import { MESSAGES } from '../constants/messages';
 import { searchPhotos } from './photoActions';
 
-const passwordSchema = z.string().trim().min(1, { message: '合言葉を正しく入力してください' });
+const passwordSchema = z.string().trim().min(1, { message: MESSAGES.PASSWORD_REQUIRED });
 
 export const searchAction = async (formData: FormData) => {
   const validatePassword = passwordSchema.safeParse(formData.get('password'));
@@ -15,7 +16,13 @@ export const searchAction = async (formData: FormData) => {
     };
     return errors;
   }
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-  const response = await searchPhotos(validatePassword.data);
-  return response;
+  try {
+    const response = await searchPhotos(validatePassword.data);
+    return response;
+  } catch (error) {
+    return {
+      errors: { password: [MESSAGES.SEARCH_ERROR] },
+      message: error instanceof Error ? error.message : MESSAGES.UNKNOWN_ERROR,
+    };
+  }
 };
