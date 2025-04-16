@@ -1,18 +1,14 @@
 'use client';
 
 import { useSearch } from '../context/SearchContext';
+import { ApiError } from './ApiError';
 import { PhotoCard } from './PhotoCard';
-import { SkeletonLoader } from './SkeletonLoader';
 
 export const PhotoResults = () => {
-  const { searchResults, hasSearched, isLoading, error } = useSearch();
-
-  if (isLoading) {
-    return <SkeletonLoader />;
-  }
+  const { searchResults, hasSearched, error } = useSearch();
 
   if (error) {
-    return <div className="text-center text-red-500 dark:text-red-400 py-8">{error}</div>;
+    return <ApiError />;
   }
 
   if (!hasSearched) {
