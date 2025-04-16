@@ -1,38 +1,39 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { useState } from 'react';
+import { useActionState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { searchAction } from '../actions/searchActions';
+import { searchAction, SearchActionState } from '../actions/searchActions';
 import { useSearch } from '../context/SearchContext';
+import { SkeletonLoader } from './SkeletonLoader';
+
+const INITIAL_STATE: SearchActionState = {
+  data: [],
+  validationErrors: {},
+  message: null,
+  apiError: null,
+};
 
 export const PhotoSearchForm = () => {
   const [password, setPassword] = useState('');
-  const [validationError, setValidationError] = useState<string | null>(null);
-  const { setSearchResults, setHasSearched, setIsLoading, setError } = useSearch();
+  const { setSearchResults, setHasSearched, setError } = useSearch();
 
-  const handleSearchAction = async (formData: FormData) => {
-    setIsLoading(true);
-    setValidationError(null);
-    setError(null);
-    try {
-      const response = await searchAction(formData);
+  const [state, formAction, pending] = useActionState(searchAction, INITIAL_STATE);
 
-      if ('errors' in response) {
-        setValidationError(response.message);
+  useEffect(() => {
+    if (state) {
+      if ('validationErrors' in state) {
         setSearchResults([]);
-        return;
+      } else if ('data' in state) {
+        setSearchResults(state.data!);
+        setHasSearched(true);
+        setError(null);
+      } else if ('apiError' in state) {
+        setError(state.apiError!);
       }
-
-      setSearchResults(response.data);
-      setHasSearched(true);
-    } catch (error) {
-      setError(error instanceof Error ? error.message : '検索中にエラーが発生しました');
-      setSearchResults([]);
-    } finally {
-      setIsLoading(false);
     }
-  };
+  }, [state, setSearchResults, setHasSearched, setError]);
 
   return (
     <motion.div
@@ -40,7 +41,7 @@ export const PhotoSearchForm = () => {
       animate={{ opacity: 1, y: 0 }}
       className="max-w-2xl mx-auto mb-12"
     >
-      <form action={handleSearchAction} className="w-full">
+      <form action={formAction} className="w-full">
         <div className="relative">
           <input
             type="text"
@@ -52,9 +53,12 @@ export const PhotoSearchForm = () => {
             autoComplete="off"
           />
         </div>
-        {validationError && (
-          <div className="text-center text-red-500 dark:text-red-400 py-3">{validationError}</div>
+        {state.validationErrors && (
+          <div className="text-center text-red-500 dark:text-red-400 py-3">
+            {state.validationErrors.password}
+          </div>
         )}
+        {pending && <SkeletonLoader />}
       </form>
     </motion.div>
   );
