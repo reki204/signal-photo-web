@@ -3,26 +3,45 @@
 import { z } from 'zod';
 
 import { MESSAGES } from '../constants/messages';
+import { DecryptedImage } from '../types/DecryptedImage';
 import { searchPhotos } from './photoActions';
 
-const passwordSchema = z.string().trim().min(1, { message: MESSAGES.PASSWORD_REQUIRED });
+export type SearchActionState = { data?: DecryptedImage[] } & Errors;
 
-export const searchAction = async (formData: FormData) => {
-  const validatePassword = passwordSchema.safeParse(formData.get('password'));
+type Errors = {
+  validationErrors?: {
+    password?: string[];
+  };
+  message?: string | null;
+  apiError?: string | null;
+};
+
+const passwordSchema = z.object({
+  password: z.string().trim().min(1, { message: MESSAGES.PASSWORD_REQUIRED }),
+});
+
+export const searchAction = async (
+  _state: SearchActionState | null,
+  formData: FormData
+): Promise<SearchActionState> => {
+  const validatePassword = passwordSchema.safeParse({
+    password: formData.get('password'),
+  });
+
   if (!validatePassword.success) {
-    const errors = {
-      errors: validatePassword.error.flatten().fieldErrors,
+    return {
+      validationErrors: validatePassword.error.flatten().fieldErrors,
       message: validatePassword.error.issues[0].message,
     };
-    return errors;
   }
+
   try {
-    const response = await searchPhotos(validatePassword.data);
-    return response;
+    await new Promise((resolve) => setTimeout(resolve, 2000)); //意図的にしてる
+    const response = await searchPhotos(validatePassword.data.password);
+    return { data: response.data };
   } catch (error) {
     return {
-      errors: { password: [MESSAGES.SEARCH_ERROR] },
-      message: error instanceof Error ? error.message : MESSAGES.UNKNOWN_ERROR,
+      apiError: MESSAGES.UNKNOWN_ERROR,
     };
   }
 };
