@@ -9,8 +9,6 @@ type SearchContextType = {
   setSearchResults: (results: DecryptedImage[]) => void;
   hasSearched: boolean;
   setHasSearched: (value: boolean) => void;
-  isLoading: boolean;
-  setIsLoading: (value: boolean) => void;
   error: string | null;
   setError: (error: string | null) => void;
 };
@@ -20,7 +18,6 @@ const SearchContext = createContext<SearchContextType | undefined>(undefined);
 export function SearchProvider({ children }: { children: ReactNode }) {
   const [searchResults, setSearchResults] = useState<DecryptedImage[]>([]);
   const [hasSearched, setHasSearched] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   return (
@@ -30,8 +27,6 @@ export function SearchProvider({ children }: { children: ReactNode }) {
         setSearchResults,
         hasSearched,
         setHasSearched,
-        isLoading,
-        setIsLoading,
         error,
         setError,
       }}
