@@ -1,12 +1,15 @@
 'use client';
 
-import { useSearch } from '../context/SearchContext';
+import { usePhotoStore } from '../store/usePhotoStore';
 import { ApiError } from './ApiError';
 import { NoResultsFound } from './NoResultFound';
 import { PhotoCard } from './PhotoCard';
+import { SkeletonLoader } from './SkeletonLoader';
 
 export const PhotoResults = () => {
-  const { searchResults, hasSearched, error } = useSearch();
+  const { searchResults, hasSearched, error, isLoading } = usePhotoStore();
+
+  if (isLoading) return <SkeletonLoader />;
 
   if (error) return <ApiError />;
 

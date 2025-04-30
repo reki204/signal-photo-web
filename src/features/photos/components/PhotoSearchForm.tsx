@@ -5,8 +5,7 @@ import { useActionState } from 'react';
 import { useEffect, useState } from 'react';
 
 import { searchAction, SearchActionState } from '../actions/searchActions';
-import { useSearch } from '../context/SearchContext';
-import { SkeletonLoader } from './SkeletonLoader';
+import { usePhotoStore } from '../store/usePhotoStore';
 
 const INITIAL_STATE: SearchActionState = {
   data: [],
@@ -17,9 +16,13 @@ const INITIAL_STATE: SearchActionState = {
 
 export const PhotoSearchForm = () => {
   const [password, setPassword] = useState('');
-  const { setSearchResults, setHasSearched, setError } = useSearch();
+  const { setSearchResults, setHasSearched, setError, setLoading } = usePhotoStore();
 
   const [state, formAction, pending] = useActionState(searchAction, INITIAL_STATE);
+
+  useEffect(() => {
+    setLoading(pending);
+  }, [pending, setLoading]);
 
   useEffect(() => {
     if (state) {
@@ -58,7 +61,6 @@ export const PhotoSearchForm = () => {
             {state.validationErrors.password}
           </div>
         )}
-        {pending && <SkeletonLoader />}
       </form>
     </motion.div>
   );

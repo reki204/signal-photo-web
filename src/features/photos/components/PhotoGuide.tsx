@@ -3,15 +3,17 @@
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 
-import { useSearch } from '../context/SearchContext';
+import { usePhotoStore } from '../store/usePhotoStore';
 
 export const PhotoGuide = () => {
-  const { hasSearched, searchResults, error } = useSearch();
+  const { hasSearched, searchResults, error, isLoading } = usePhotoStore();
   const [message, setMessage] = useState('');
 
   useEffect(() => {
     if (error) {
       setMessage('エラーが発生しました。もう一度試してみてください。');
+    } else if (isLoading) {
+      setMessage('検索中...');
     } else if (!hasSearched) {
       setMessage(
         'こんにちは！合言葉を入力して、素敵な写真を探してみましょう！ 試しに「mike」と入力してみてください'
@@ -21,7 +23,7 @@ export const PhotoGuide = () => {
     } else {
       setMessage(`${searchResults.length}枚の写真が見つかりました！`);
     }
-  }, [hasSearched, searchResults, error]);
+  }, [hasSearched, searchResults, error, isLoading]);
 
   return (
     <motion.div
