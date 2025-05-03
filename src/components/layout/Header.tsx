@@ -3,9 +3,7 @@ import Link from 'next/link';
 
 const navigation = [
   { href: '/photos', label: 'ホーム' },
-  { href: '/photos/new', label: '新規投稿' },
-  { href: '/register', label: '新規登録' },
-  { href: '/login', label: 'ログイン' },
+  { href: '/photos/upload', label: '新規投稿' },
 ];
 
 const Header = () => {
