@@ -3,13 +3,13 @@
 import { z } from 'zod';
 
 import { MESSAGES } from '../constants/messages';
-import { createPhoto } from './photoActions';
+import { uploadPhoto } from './photoActions';
 
 export type UploadActionState = {
   success?: boolean;
   validationErrors?: {
     password?: string[];
-    image?: string[];
+    images?: string[];
   };
   message?: string | null;
   apiError?: string | null;
@@ -17,13 +17,16 @@ export type UploadActionState = {
 
 const uploadSchema = z.object({
   password: z.string().trim().min(1, { message: MESSAGES.PASSWORD_REQUIRED }),
-  image: z
-    .instanceof(File)
-    .refine((file) => file.size > 0, { message: MESSAGES.IMAGE_REQUIRED })
-    .refine((file) => file.size <= 5 * 1024 * 1024, { message: MESSAGES.IMAGE_TOO_LARGE })
-    .refine((file) => ['image/jpeg', 'image/png', 'image/gif'].includes(file.type), {
-      message: MESSAGES.INVALID_IMAGE_TYPE,
-    }),
+  images: z
+    .array(z.instanceof(File), { invalid_type_error: MESSAGES.IMAGE_REQUIRED })
+    .nonempty({ message: MESSAGES.IMAGE_REQUIRED })
+    .refine((files) => files.every((f) => f.size <= 5 * 1024 * 1024), {
+      message: MESSAGES.IMAGE_TOO_LARGE,
+    })
+    .refine(
+      (files) => files.every((f) => ['image/jpeg', 'image/png', 'image/gif'].includes(f.type)),
+      { message: MESSAGES.INVALID_IMAGE_TYPE }
+    ),
 });
 
 export const uploadAction = async (
@@ -32,7 +35,7 @@ export const uploadAction = async (
 ): Promise<UploadActionState> => {
   const validateData = uploadSchema.safeParse({
     password: formData.get('password') as string,
-    image: formData.get('image') as File,
+    images: formData.getAll('images') as File[],
   });
 
   if (!validateData.success) {
@@ -43,8 +46,7 @@ export const uploadAction = async (
   }
 
   try {
-    await createPhoto(formData);
-
+    await uploadPhoto(validateData.data);
     return {
       success: true,
       message: MESSAGES.UPLOAD_SUCCESS,

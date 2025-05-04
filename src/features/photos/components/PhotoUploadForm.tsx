@@ -85,7 +85,8 @@ export const PhotoUploadForm = () => {
             <input
               ref={fileInputRef}
               type="file"
-              name="image"
+              name="images"
+              multiple
               accept="image/*"
               className="hidden"
               onChange={handleImageChange}
