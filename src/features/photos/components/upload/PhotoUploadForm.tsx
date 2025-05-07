@@ -5,8 +5,8 @@ import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useActionState } from 'react';
 
-import { uploadAction, UploadActionState } from '../actions/uploadActions';
-import { MESSAGES } from '../constants/messages';
+import { uploadAction, UploadActionState } from '../../actions/uploadActions';
+import { MESSAGES } from '../../constants/messages';
 import { UploadButton } from './UploadButton';
 
 const INITIAL_STATE: UploadActionState = {

@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 
-import { usePhotoStore } from '../store/usePhotoStore';
+import { usePhotoStore } from '../../store/usePhotoStore';
 
 export const PhotoGuide = () => {
   const { hasSearched, searchResults, error, isLoading } = usePhotoStore();

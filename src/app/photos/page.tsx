@@ -1,6 +1,6 @@
-import { PhotoGuide } from '@/features/photos/components/PhotoGuide';
-import { PhotoResults } from '@/features/photos/components/PhotoResults';
-import { PhotoSearchForm } from '@/features/photos/components/PhotoSearchForm';
+import { PhotoGuide } from '@/features/photos/components/search/PhotoGuide';
+import { PhotoResults } from '@/features/photos/components/search/PhotoResults';
+import { PhotoSearchForm } from '@/features/photos/components/search/PhotoSearchForm';
 
 export default function SearchPhotos() {
   return (

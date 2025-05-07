@@ -1,5 +1,5 @@
-import { PhotoUploadForm } from '@/features/photos/components/PhotoUploadForm';
-import { UploadGuide } from '@/features/photos/components/UploadGuide';
+import { PhotoUploadForm } from '@/features/photos/components/upload/PhotoUploadForm';
+import { UploadGuide } from '@/features/photos/components/upload/UploadGuide';
 
 export default function UploadPhotos() {
   return (

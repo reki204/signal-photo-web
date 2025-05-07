@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 
-import { MESSAGES } from '../constants/messages';
+import { MESSAGES } from '../../constants/messages';
 
 export const UploadGuide = () => {
   const tips = MESSAGES.UPLOADTIPS;

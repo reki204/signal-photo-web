@@ -1,10 +1,10 @@
 'use client';
 
-import { usePhotoStore } from '../store/usePhotoStore';
-import { ApiError } from './ApiError';
+import { usePhotoStore } from '../../store/usePhotoStore';
+import { ApiError } from '../ApiError';
+import { SkeletonLoader } from '../SkeletonLoader';
 import { NoResultsFound } from './NoResultFound';
 import { PhotoCard } from './PhotoCard';
-import { SkeletonLoader } from './SkeletonLoader';
 
 export const PhotoResults = () => {
   const { searchResults, hasSearched, error, isLoading } = usePhotoStore();

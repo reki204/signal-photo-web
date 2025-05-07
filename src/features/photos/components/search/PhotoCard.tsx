@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 
-import { DecryptedImage } from '../types/DecryptedImage';
+import { DecryptedImage } from '../../types/DecryptedImage';
 import CanvasImage from './CanvaImage';
 
 type PhotoCardProps = {

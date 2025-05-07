@@ -4,8 +4,8 @@ import { motion } from 'motion/react';
 import { useActionState } from 'react';
 import { useEffect, useState } from 'react';
 
-import { searchAction, SearchActionState } from '../actions/searchActions';
-import { usePhotoStore } from '../store/usePhotoStore';
+import { searchAction, SearchActionState } from '../../actions/searchActions';
+import { usePhotoStore } from '../../store/usePhotoStore';
 
 const INITIAL_STATE: SearchActionState = {
   data: [],
