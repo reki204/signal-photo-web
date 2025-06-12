@@ -16,5 +16,3 @@ app.get('/', (c) => c.text('Hello from Hono'))
 
 export const GET = handle(app)
 export const POST = handle(app)
-export const ALL = handle(app)
-
