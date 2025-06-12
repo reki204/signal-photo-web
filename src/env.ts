@@ -4,15 +4,15 @@ import { z } from 'zod';
 export const env = createEnv({
   server: {
     NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
-    NEXT_RUNTIME: z.string(),
-    SENTRY_ORG: z.string(),
-    SENTRY_PROJECT: z.string(),
-    SENTRY_AUTH_TOKEN: z.string(),
-    API_URL: z.string().url(),
+    NEXT_RUNTIME: z.string().optional(),
+    SENTRY_ORG: z.string().optional(),
+    SENTRY_PROJECT: z.string().optional(),
+    SENTRY_AUTH_TOKEN: z.string().optional(),
+    API_URL: z.string().url().optional(),
   },
   client: {
-    NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: z.string(),
-    NEXT_PUBLIC_SENTRY_DSN: z.string(),
+    NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: z.string().optional(),
+    NEXT_PUBLIC_SENTRY_DSN: z.string().optional(),
   },
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
