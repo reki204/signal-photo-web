@@ -7,7 +7,9 @@ app.use('*', async (c, next) => {
   const start = Date.now()
   await next()
   const duration = Date.now() - start
-  console.log(`${c.req.method} ${c.req.url} ${duration}ms`)
+  console.log(
+    `${new Date().toISOString()} ${c.req.method} ${c.req.url} ${duration}ms`
+  )
 })
 
 app.get('/', (c) => c.text('Hello from Hono'))
