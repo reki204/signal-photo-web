@@ -1,32 +1,62 @@
-## Signal Photo Web
+# Signal Photo Web
 
-<img src="./public/images/signalphoto-logo.webp" alt="signal-photo-logo" width="150" height="100" />
+Signal Photo Webは、画像を安全にアップロードし、検索・共有するためのWebアプリケーションです。Next.js (App Router) を使用して構築されています。
 
-## Getting Started
+## 主な機能
 
-First, run the development server:
+- **画像アップロード**: ドラッグ＆ドロップ対応のインターフェースから簡単に画像をアップロードできます。
+- **画像検索**: アップロードした画像を検索できます。
+- **テーマ切り替え**: ライトモードとダークモードを切り替えることができます。
 
-```bash
-npm run dev
-```
+## 技術スタack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **フレームワーク**: [Next.js](https://nextjs.org/)
+- **言語**: [TypeScript](https://www.typescriptlang.org/)
+- **API**: [Hono](https://hono.dev/)
+- **UI**:
+  - [React](https://react.dev/)
+  - [Tailwind CSS](https://tailwindcss.com/)
+  - [shadcn/ui](https://ui.shadcn.com/) (Radix UI)
+  - [Lucide React](https://lucide.dev/guide/packages/lucide-react) (アイコン)
+  - [Framer Motion](https://www.framer.com/motion/) (アニメーション)
+- **状態管理**: [Zustand](https://zustand-demo.pmnd.rs/)
+- **ファイルアップロード**: [React-Uploady](https://react-uploady.org/)
+- **環境変数**: [T3 Env](https://env.t3.gg/)
+- **エラー監視**: [Sentry](https://sentry.io/)
+- **リンター/フォーマッター**:
+  - [ESLint](https://eslint.org/)
+  - [Prettier](https://prettier.io/)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ローカル開発環境のセットアップ
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1.  **リポジトリをクローンします**
+    ```bash
+    git clone https://github.com/your-username/signal-photo-web.git
+    cd signal-photo-web
+    ```
 
-## Learn More
+2.  **依存関係をインストールします**
+    ```bash
+    npm install
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+3.  **環境変数を設定します**
+    `.env.local` ファイルを作成し、必要な環境変数を設定してください。設定すべき項目については `src/env.ts` を参照してください。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4.  **開発サーバーを起動します**
+    ```bash
+    npm run dev
+    ```
+    ブラウザで `http://localhost:3000` を開いてください。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 利用可能なスクリプト
 
-## Deploy on Vercel
+- `npm run dev`: 開発モードでアプリケーションを起動します。
+- `npm run build`: 本番用にアプリケーションをビルドします。
+- `npm run start`: ビルドしたアプリケーションを本番モードで起動します。
+- `npm run lint`: ESLintとPrettierでコードの静的解析を実行します。
+- `npm run fix`: ESLintとPrettierでコードを自動修正します。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## デプロイ
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+このプロジェクトは、`@cloudflare/next-on-pages` を使用しており、Cloudflare Pagesへのデプロイが想定されています。
