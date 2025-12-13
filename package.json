@@ -15,7 +15,7 @@
     "taze:major": "npx taze major"
   },
   "dependencies": {
-    "@next/third-parties": "^15.3.8",
+    "@next/third-parties": "^16.0.10",
     "@radix-ui/react-avatar": "^1.1.11",
     "@radix-ui/react-slot": "^1.2.4",
     "@rpldy/upload-drop-zone": "^1.13.0",
@@ -40,7 +40,6 @@
     "zustand": "^5.0.9"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.12",
     "@eslint/eslintrc": "^3.3.3",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/node": "^25.0.1",
