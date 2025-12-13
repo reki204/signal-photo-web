@@ -4,9 +4,7 @@ import type { NextConfig } from 'next';
 import { env } from './src/env';
 
 const nextConfig: NextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  turbopack: {},
 };
 
 export default withSentryConfig(nextConfig, {
